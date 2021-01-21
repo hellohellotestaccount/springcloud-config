@@ -1,2 +1,2 @@
-server:
-  port: 2010
+config:
+    info: master brach,springcloud-config/config-test.yml version=1
