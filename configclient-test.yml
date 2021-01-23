@@ -5,24 +5,18 @@ spring:
   profiles: dev #测试环境
   application:
     name: config-client
-  cloud:
+    
+  ##rabbitmq相关配置 
+  rabbitmq:
+    host: 192.168.174.129
+    #这个端口号与RabitMQ管理界面所使用访问的端口号不同15672
+    port: 5672
+    username: guest
+    password: guest
 
-    ##consul
-    consul:
-      host: 192.168.174.129 #consul服务器的主机地址
-      port: 8500 #consul服务器的ip地址
-      discovery:
-        #是否需要注册
-        register: true
-        #注册的实例ID (唯一标志)
-        instance-id: ${spring.application.name}-${server.port}
-        service-name: ${spring.application.name}
-        #服务的请求端口
-        port: ${server.port}
-        #指定开启ip地址注册
-        prefer-ip-address: true
-        #当前服务的请求ip
-        ip-address: ${spring.cloud.client.ip-address}
-  #        heartbeat:
-  #          enabled: true
-
+##暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #refresh
