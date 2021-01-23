@@ -26,17 +26,3 @@ spring:
   #        heartbeat:
   #          enabled: true
 
-  ##rabbitmq相关配置 
-  rabbitmq:
-    host: 192.168.174.129
-    #这个端口号与RabitMQ管理界面所使用访问的端口号不同15672
-    port: 5672
-    username: guest
-    password: guest
-
-##暴露监控端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*" #refresh
