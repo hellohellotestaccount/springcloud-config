@@ -1,11 +1,12 @@
 server:
-  port: 3002
+  port: 3001
 
 spring:
   profiles: dev #测试环境
   application:
     name: config-client
   cloud:
+
     ##consul
     consul:
       host: 192.168.174.129 #consul服务器的主机地址
@@ -24,3 +25,12 @@ spring:
         ip-address: ${spring.cloud.client.ip-address}
   #        heartbeat:
   #          enabled: true
+
+
+  ##rabbitmq相关配置
+  rabbitmq:
+    host: 192.168.174.129
+    #这个端口号与RabitMQ管理界面所使用访问的端口号不同15672
+    port: 5672
+    username: guest
+    password: guest
